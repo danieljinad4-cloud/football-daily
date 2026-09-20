@@ -174,16 +174,126 @@
             background: #020617;
         }
 
+        /* ================= HOMEPAGE UPGRADE ================= */
+
+        .hero {
+            max-width: 1000px;
+            margin: 25px auto 35px;
+            padding: 45px 25px;
+            border-radius: 22px;
+            background: linear-gradient(135deg, #14532d, #166534, #0f172a);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin: 5px 0 12px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-button {
+            border: none;
+            padding: 13px 22px;
+            border-radius: 10px;
+            background: white;
+            color: #166534;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .hero-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .home-grid {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .home-stat {
+            background: #172554;
+            border-radius: 16px;
+            padding: 22px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+        }
+
+        .home-stat h3 {
+            margin: 0 0 8px;
+            font-size: 26px;
+        }
+
+        .home-stat p {
+            margin: 0;
+            color: #dbeafe;
+        }
+
+        .featured {
+            max-width: 900px;
+            margin: 35px auto;
+            background: white;
+            color: #0b132b;
+            padding: 28px;
+            border-radius: 18px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .featured-match {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            font-size: 22px;
+            font-weight: bold;
+            margin: 18px 0;
+        }
+
+        .featured-vs {
+            color: #16a34a;
+            font-size: 16px;
+        }
+
+        @media (max-width: 700px) {
+
+            .hero h2 {
+                font-size: 30px;
+            }
+
+            .home-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                margin: 7px;
+                display: inline-block;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-
     <!-- ================= HEADER ================= -->
 
     <h1>⚽ Football Daily</h1>
-
 
     <!-- ================= NAVIGATION ================= -->
 
@@ -207,27 +317,109 @@
 
     </nav>
 
-
     <!-- ================================================= -->
     <!-- ================= HOME PAGE ===================== -->
     <!-- ================================================= -->
 
     <div id="home" class="page">
 
-        <h2>⚽ Welcome to Football Daily</h2>
+        <div class="hero">
 
-        <p>
-            Football news, transfers, teams, fixtures,
-            results and videos all in one place.
-        </p>
+            <p>⚽ FOOTBALL DAILY</p>
 
+            <h2>Your Football Hub</h2>
 
-        <!-- SHORT VIDEOS -->
+            <p>
+                Follow football news, transfers, teams, fixtures,
+                results and videos — all in one place.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="hero-button"
+                        onclick="showPage('news')">
+                    📰 Latest News
+                </button>
+
+                <button class="hero-button"
+                        onclick="showPage('fixtures')">
+                    📅 Fixtures
+                </button>
+
+                <button class="hero-button"
+                        onclick="showPage('teams')">
+                    ⚽ Explore Teams
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="home-grid">
+
+            <div class="home-stat">
+
+                <h3>📰 News</h3>
+
+                <p>
+                    Football stories and updates in one place.
+                </p>
+
+            </div>
+
+            <div class="home-stat">
+
+                <h3>🔄 Transfers</h3>
+
+                <p>
+                    Follow transfer stories and squad moves.
+                </p>
+
+            </div>
+
+            <div class="home-stat">
+
+                <h3>📅 Matches</h3>
+
+                <p>
+                    Check fixtures and results.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="featured">
+
+            <h2>🔥 Featured Match</h2>
+
+            <div class="featured-match">
+
+                <span>⚽ Manchester City</span>
+
+                <span class="featured-vs">
+                    VS
+                </span>
+
+                <span>⚽ Sunderland</span>
+
+            </div>
+
+            <p>
+                Match information, results and more will be
+                available in the Fixtures section.
+            </p>
+
+            <button class="back-button"
+                    onclick="showPage('fixtures')">
+                View Fixtures →
+            </button>
+
+        </div>
 
         <h2 class="section-title">
             🎥 Watch While You Wait
         </h2>
-
 
         <div class="video-card"
              onclick="openVideo('skills')">
@@ -240,7 +432,6 @@
 
         </div>
 
-
         <div class="video-card"
              onclick="openVideo('goals')">
 
@@ -251,7 +442,6 @@
             </p>
 
         </div>
-
 
         <div class="video-card"
              onclick="openVideo('highlights')">
@@ -264,13 +454,9 @@
 
         </div>
 
-
-        <!-- FOOTBALL VIDEOS -->
-
         <h2 class="section-title">
             📺 Football Videos
         </h2>
-
 
         <div class="card"
              onclick="openVideo('all')">
@@ -284,13 +470,9 @@
 
         </div>
 
-
-        <!-- TRANSFERS -->
-
         <h2 class="section-title">
-            🔄 Transfers
+            ⚡ Quick Access
         </h2>
-
 
         <div class="card"
              onclick="showPage('news'); showNews('transfers')">
@@ -303,9 +485,6 @@
 
         </div>
 
-
-        <!-- MATCHES -->
-
         <div class="card"
              onclick="showPage('fixtures')">
 
@@ -316,9 +495,6 @@
             </p>
 
         </div>
-
-
-        <!-- NEWS -->
 
         <div class="card"
              onclick="showPage('news'); showNews('headlines')">
@@ -333,7 +509,6 @@
 
     </div>
 
-
     <!-- ================================================= -->
     <!-- ================= NEWS PAGE ===================== -->
     <!-- ================================================= -->
@@ -341,7 +516,6 @@
     <div id="news" class="page">
 
         <h2>📰 Football News</h2>
-
 
         <div class="card"
              onclick="showNews('headlines')">
@@ -354,7 +528,6 @@
 
         </div>
 
-
         <div class="card"
              onclick="showNews('transfers')">
 
@@ -365,7 +538,6 @@
             </p>
 
         </div>
-
 
         <div class="card"
              onclick="showNews('current')">
@@ -378,7 +550,6 @@
 
         </div>
 
-
         <div class="card"
              onclick="showNews('results')">
 
@@ -390,11 +561,9 @@
 
         </div>
 
-
         <div id="news-content"></div>
 
     </div>
-
 
     <!-- ================================================= -->
     <!-- ================= TEAMS PAGE =================== -->
@@ -404,11 +573,9 @@
 
         <h2>⚽ Football Teams</h2>
 
-
         <h2 class="section-title">
             🏴 Premier League
         </h2>
-
 
         <div class="team"
              onclick="teamInfo('Arsenal')">
@@ -433,11 +600,6 @@
         <div class="team"
              onclick="teamInfo('Manchester United')">
             ⚽ Manchester United
-        </div>
-
-        <div class="team"
-             onclick="teamInfo('Arsenal')">
-            ⚽ Arsenal
         </div>
 
         <div class="team"
@@ -470,11 +632,9 @@
             ⚽ Fulham
         </div>
 
-
         <h2 class="section-title">
             🇪🇸 La Liga
         </h2>
-
 
         <div class="team"
              onclick="teamInfo('Barcelona')">
@@ -506,11 +666,9 @@
             ⚽ Villarreal
         </div>
 
-
         <h2 class="section-title">
             🇮🇹 Serie A
         </h2>
-
 
         <div class="team"
              onclick="teamInfo('AC Milan')">
@@ -537,11 +695,9 @@
             ⚽ AS Roma
         </div>
 
-
         <h2 class="section-title">
             🇩🇪 Bundesliga
         </h2>
-
 
         <div class="team"
              onclick="teamInfo('Bayern Munich')">
@@ -558,11 +714,9 @@
             ⚽ Bayer Leverkusen
         </div>
 
-
         <h2 class="section-title">
             🇫🇷 Ligue 1
         </h2>
-
 
         <div class="team"
              onclick="teamInfo('PSG')">
@@ -581,7 +735,6 @@
 
     </div>
 
-
     <!-- ================================================= -->
     <!-- ================= FIXTURES PAGE ================ -->
     <!-- ================================================= -->
@@ -590,11 +743,9 @@
 
         <h2>📅 Fixtures & Results</h2>
 
-
         <h2 class="section-title">
             🔥 Matches
         </h2>
-
 
         <div class="match"
              onclick="matchInfo('Bournemouth vs Liverpool')">
@@ -607,7 +758,6 @@
 
         </div>
 
-
         <div class="match"
              onclick="matchInfo('Leeds United vs Crystal Palace')">
 
@@ -618,7 +768,6 @@
             2:00 PM
 
         </div>
-
 
         <div class="match"
              onclick="matchInfo('Manchester City vs Sunderland')">
@@ -631,7 +780,6 @@
 
         </div>
 
-
         <div class="match"
              onclick="matchInfo('Fulham vs Manchester United')">
 
@@ -643,11 +791,9 @@
 
         </div>
 
-
         <h2 class="section-title">
             🏆 Recent Results
         </h2>
-
 
         <div class="match"
              onclick="matchInfo('Manchester City 5 - 3 Sunderland')">
@@ -656,14 +802,12 @@
 
         </div>
 
-
         <div class="match"
              onclick="matchInfo('Bournemouth 0 - 1 Liverpool')">
 
             🔴 Bournemouth 0 - 1 Liverpool
 
         </div>
-
 
         <div class="match"
              onclick="matchInfo('Leeds United 0 - 0 Crystal Palace')">
@@ -674,24 +818,19 @@
 
     </div>
 
-
     <!-- ================================================= -->
     <!-- ================= JAVASCRIPT =================== -->
     <!-- ================================================= -->
 
     <script>
 
-
         /* ================= PAGE NAVIGATION ================= */
 
         function showPage(page) {
 
             document.getElementById("home").style.display = "none";
-
             document.getElementById("news").style.display = "none";
-
             document.getElementById("teams").style.display = "none";
-
             document.getElementById("fixtures").style.display = "none";
 
             document.getElementById(page).style.display = "block";
@@ -700,14 +839,12 @@
         }
 
 
-
         /* ================= NEWS ================= */
 
         function showNews(type) {
 
             const content =
                 document.getElementById("news-content");
-
 
             if (type === "headlines") {
 
@@ -733,7 +870,6 @@
                             Premier League match.
                         </p>
 
-
                         <h3>
                             🔴 Bournemouth 0-1 Liverpool
                         </h3>
@@ -742,7 +878,6 @@
                             Liverpool won their match
                             against Bournemouth.
                         </p>
-
 
                         <h3>
                             ⚽ Leeds United 0-0 Crystal Palace
@@ -756,6 +891,7 @@
                     </div>
 
                 `;
+
             }
 
 
@@ -783,7 +919,6 @@
                             here.
                         </p>
 
-
                         <h3>
                             ⚽ Transfer Updates
                         </h3>
@@ -797,6 +932,7 @@
                     </div>
 
                 `;
+
             }
 
 
@@ -822,7 +958,6 @@
                             matches and breaking stories.
                         </p>
 
-
                         <p>
                             Football Daily will keep this
                             area for the biggest football
@@ -832,6 +967,7 @@
                     </div>
 
                 `;
+
             }
 
 
@@ -859,7 +995,6 @@
                             Premier League
                         </p>
 
-
                         <h3>
                             Bournemouth 0 - 1 Liverpool
                         </h3>
@@ -867,7 +1002,6 @@
                         <p>
                             Premier League
                         </p>
-
 
                         <h3>
                             Leeds United 0 - 0 Crystal Palace
@@ -880,12 +1014,11 @@
                     </div>
 
                 `;
-            }
 
+            }
 
             window.scrollTo(0, 0);
         }
-
 
 
         /* ================= TEAM INFORMATION ================= */
@@ -894,24 +1027,19 @@
 
             showPage("teams");
 
-
             const oldInfo =
                 document.getElementById("team-info");
-
 
             if (oldInfo) {
                 oldInfo.remove();
             }
 
-
             const info =
                 document.createElement("div");
-
 
             info.id = "team-info";
 
             info.className = "info-box";
-
 
             info.innerHTML = `
 
@@ -939,11 +1067,9 @@
 
             `;
 
-
             document
                 .getElementById("teams")
                 .appendChild(info);
-
 
             info.scrollIntoView({
                 behavior: "smooth"
@@ -951,19 +1077,16 @@
         }
 
 
-
         function closeTeamInfo() {
 
             const info =
                 document.getElementById("team-info");
-
 
             if (info) {
                 info.remove();
             }
 
         }
-
 
 
         /* ================= MATCH INFORMATION ================= */
@@ -979,14 +1102,12 @@
         }
 
 
-
         /* ================= VIDEO SECTION ================= */
 
         function openVideo(type) {
 
             let title = "";
             let message = "";
-
 
             if (type === "skills") {
 
@@ -997,7 +1118,6 @@
 
             }
 
-
             if (type === "goals") {
 
                 title = "⚽ Best Goals";
@@ -1006,7 +1126,6 @@
                     "Amazing football goals will appear here.";
 
             }
-
 
             if (type === "highlights") {
 
@@ -1017,7 +1136,6 @@
 
             }
 
-
             if (type === "all") {
 
                 title = "🎬 Football Videos";
@@ -1026,7 +1144,6 @@
                     "Highlights, interviews, goals and football clips will appear here.";
 
             }
-
 
             alert(
                 title +
@@ -1037,13 +1154,11 @@
         }
 
 
-
         /* ================= START WEBSITE ================= */
 
         showPage("home");
 
     </script>
-
 
     <!-- ================= FOOTER ================= -->
 

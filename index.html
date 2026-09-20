@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+
+    <style>
+        body {
+            background-color: lightblue;
+            text-align: center;
+            font-family: Arial;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        h1 {
+            color: darkblue;
+        }
+
+        h2 {
+            margin-top: 100px;
+        }
+
+        nav {
+            background-color: darkgreen;
+            padding: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 20px;
+            font-weight: bold;
+        }
+
+        .team {
+            background-color: white;
+            padding: 20px;
+            margin: 10px;
+            width: 180px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#" onclick="showPage('home')">Home</a>
+        <a href="#" onclick="showPage('news')">News</a>
+        <a href="#" onclick="showPage('teams')">Teams</a>
+        <a href="#" onclick="showPage('fixtures')">Fixtures</a>
+    </nav>
+
+    <div id="home">
+        <h1>Football Daily ⚽</h1>
+        <p>Your home for football news, teams, players and results!</p>
+    </div>
+
+    <div id="news">
+        <h2>Latest Football News</h2>
+        <p>Stay updated with the latest football action!</p>
+        <h3>🔥 Matchday News</h3>
+        <p>Follow the latest scores, results and football updates here.</p>
+    </div>
+
+    <div id="teams">
+        <h2>Premier League ⚽</h2>
+
+        <div class="team">⚽ AFC Bournemouth</div>
+        <div class="team">⚽ Arsenal</div>
+        <div class="team">⚽ Aston Villa</div>
+        <div class="team">⚽ Brentford</div>
+        <div class="team">⚽ Brighton & Hove Albion</div>
+        <div class="team">⚽ Chelsea</div>
+        <div class="team">⚽ Crystal Palace</div>
+        <div class="team">⚽ Everton</div>
+        <div class="team">⚽ Fulham</div>
+        <div class="team">⚽ Leeds United</div>
+        <div class="team">⚽ Liverpool</div>
+        <div class="team">⚽ Manchester City</div>
+        <div class="team">⚽ Manchester United</div>
+        <div class="team">⚽ Newcastle United</div>
+        <div class="team">⚽ Nottingham Forest</div>
+        <div class="team">⚽ Sunderland</div>
+        <div class="team">⚽ Tottenham Hotspur</div>
+        <div class="team">⚽ West Ham United</div>
+        <div class="team">⚽ Wolverhampton Wanderers</div>
+        <div class="team">⚽ Burnley</div>
+        <h2>La Liga 🇪🇸</h2>
+
+<div class="team">⚽ Athletic Club</div>
+<div class="team">⚽ Atlético Madrid</div>
+<div class="team">⚽ Barcelona</div>
+<div class="team">⚽ Real Madrid</div>
+<div class="team">⚽ Sevilla</div>
+<div class="team">⚽ Valencia</div>
+<div class="team">⚽ Villarreal</div>
+<div class="team">⚽ Real Betis</div>
+<div class="team">⚽ Real Sociedad</div>
+<div class="team">⚽ Girona</div>
+<h2>Serie A 🇮🇹</h2>
+
+<div class="team">⚽ AC Milan</div>
+<div class="team">⚽ Inter Milan</div>
+<div class="team">⚽ Juventus</div>
+<div class="team">⚽ Napoli</div>
+<div class="team">⚽ AS Roma</div>
+<div class="team">⚽ Lazio</div>
+<div class="team">⚽ Atalanta</div>
+<div class="team">⚽ Fiorentina</div>
+<div class="team">⚽ Bologna</div>
+<div class="team">⚽ Torino</div>
+<div class="team">⚽ Genoa</div>
+<div class="team">⚽ Udinese</div>
+<div class="team">⚽ Cagliari</div>
+<div class="team">⚽ Parma</div>
+<div class="team">⚽ Lecce</div>
+<div class="team">⚽ Como</div>
+<div class="team">⚽ Sassuolo</div>
+<div class="team">⚽ Cremonese</div>
+<div class="team">⚽ Pisa</div>
+<div class="team">⚽ Hellas Verona</div>
+<h2>Bundesliga 🇩🇪</h2>
+<div class="team">⚽ Bayern Munich</div>
+<div class="team">⚽ Borussia Dortmund</div>
+<div class="team">⚽ Bayer Leverkusen</div>
+<div class="team">⚽ RB Leipzig</div>
+<div class="team">⚽ Eintracht Frankfurt</div>
+<div class="team">⚽ VfB Stuttgart</div>
+<div class="team">⚽ Borussia Mönchengladbach</div>
+<div class="team">⚽ Wolfsburg</div>
+<div class="team">⚽ SC Freiburg</div>
+<div class="team">⚽ Mainz 05</div>
+<div class="team">⚽ Werder Bremen</div>
+<div class="team">⚽ Union Berlin</div>
+<div class="team">⚽ Augsburg</div>
+<div class="team">⚽ Hoffenheim</div>
+<div class="team">⚽ FC St. Pauli</div>
+<div class="team">⚽ Heidenheim</div>
+<div class="team">⚽ Köln</div>
+<div class="team">⚽ Hamburg</div>
+<h2>Ligue 1 🇫🇷</h2>
+<div class="team">⚽ Paris Saint-Germain</div>
+<div class="team">⚽ Marseille</div>
+<div class="team">⚽ Lyon</div>
+<div class="team">⚽ Monaco</div>
+<div class="team">⚽ Lille</div>
+<div class="team">⚽ Nice</div>
+<div class="team">⚽ Rennes</div>
+<div class="team">⚽ Lens</div>
+<div class="team">⚽ Nantes</div>
+<div class="team">⚽ Strasbourg</div>
+<div class="team">⚽ Montpellier</div>
+<div class="team">⚽ Toulouse</div>
+<div class="team">⚽ Brest</div>
+<div class="team">⚽ Reims</div>
+<div class="team">⚽ Auxerre</div>
+<div class="team">⚽ Le Havre</div>
+<div class="team">⚽ Angers</div>
+<div class="team">⚽ Saint-Étienne</div>
+    </div>
+
+    <div id="fixtures">
+        <h2>Upcoming Matches</h2>
+        <p>🏆 Manchester City vs Arsenal</p>
+        <p>🏆 Real Madrid vs Barcelona</p>
+    </div>
+
+    <script>
+        let color = 0;
+
+        function changeColor() {
+            const button = document.querySelector("button");
+
+            if (color === 0) {
+                button.style.backgroundColor = "red";
+                color = 1;
+            } else if (color === 1) {
+                button.style.backgroundColor = "blue";
+                color = 2;
+            } else if (color === 2) {
+                button.style.backgroundColor = "green";
+                color = 3;
+            } else {
+                button.style.backgroundColor = "purple";
+                color = 0;
+            }
+        }
+
+        function showPage(page) {
+            document.getElementById("home").style.display = "none";
+            document.getElementById("news").style.display = "none";
+            document.getElementById("teams").style.display = "none";
+            document.getElementById("fixtures").style.display = "none";
+
+            document.getElementById(page).style.display = "block";
+        }
+
+        showPage("home");
+    </script>
+
+</body>
+</html>

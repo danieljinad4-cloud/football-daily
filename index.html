@@ -1,208 +1,1063 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Football Daily ⚽</title>
 
     <style>
-        body {
-            background-color: lightblue;
-            text-align: center;
-            font-family: Arial;
+
+        * {
+            box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
+        body {
+            background: #0b132b;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            text-align: center;
         }
 
         h1 {
-            color: darkblue;
-        }
-
-        h2 {
-            margin-top: 100px;
+            margin: 0;
+            padding: 25px;
+            font-size: 40px;
         }
 
         nav {
-            background-color: darkgreen;
-            padding: 15px;
+            background: #16a34a;
+            padding: 18px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            margin: 20px;
+            margin: 15px;
             font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .page {
+            display: none;
+            padding: 25px;
+        }
+
+        .card {
+            background: white;
+            color: #0b132b;
+            width: 500px;
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px black;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 15px black;
+        }
+
+        .video-card {
+            background: #172554;
+            color: white;
+            width: 500px;
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .video-card:hover {
+            background: #1e3a8a;
+            transform: scale(1.03);
+        }
+
+        .news-card {
+            background: white;
+            color: #0b132b;
+            width: 700px;
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: left;
+            box-shadow: 0 4px 10px black;
         }
 
         .team {
-            background-color: white;
-            padding: 20px;
-            margin: 10px;
-            width: 180px;
-            border-radius: 10px;
-            font-size: 18px;
-            font-weight: bold;
+            background: white;
+            color: #0b132b;
             display: inline-block;
+            width: 190px;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
         }
+
+        .team:hover {
+            transform: scale(1.05);
+            background: #dcfce7;
+        }
+
+        .match {
+            background: white;
+            color: #0b132b;
+            width: 450px;
+            max-width: 90%;
+            margin: 15px auto;
+            padding: 20px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .match:hover {
+            transform: scale(1.03);
+            background: #dcfce7;
+        }
+
+        .back-button {
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 15px;
+        }
+
+        .back-button:hover {
+            background: #15803d;
+        }
+
+        .section-title {
+            margin-top: 40px;
+        }
+
+        .info-box {
+            background: white;
+            color: #0b132b;
+            width: 700px;
+            max-width: 90%;
+            margin: 25px auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px black;
+        }
+
+        .small-text {
+            color: #555;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 25px;
+            background: #020617;
+        }
+
     </style>
 </head>
 
 <body>
 
+
+    <!-- ================= HEADER ================= -->
+
+    <h1>⚽ Football Daily</h1>
+
+
+    <!-- ================= NAVIGATION ================= -->
+
     <nav>
-        <a href="#" onclick="showPage('home')">Home</a>
-        <a href="#" onclick="showPage('news')">News</a>
-        <a href="#" onclick="showPage('teams')">Teams</a>
-        <a href="#" onclick="showPage('fixtures')">Fixtures</a>
+
+        <a href="#" onclick="showPage('home')">
+            🏠 Home
+        </a>
+
+        <a href="#" onclick="showPage('news')">
+            📰 News
+        </a>
+
+        <a href="#" onclick="showPage('teams')">
+            ⚽ Teams
+        </a>
+
+        <a href="#" onclick="showPage('fixtures')">
+            📅 Fixtures
+        </a>
+
     </nav>
 
-    <div id="home">
-        <h1>Football Daily ⚽</h1>
-        <p>Your home for football news, teams, players and results!</p>
+
+    <!-- ================================================= -->
+    <!-- ================= HOME PAGE ===================== -->
+    <!-- ================================================= -->
+
+    <div id="home" class="page">
+
+        <h2>⚽ Welcome to Football Daily</h2>
+
+        <p>
+            Football news, transfers, teams, fixtures,
+            results and videos all in one place.
+        </p>
+
+
+        <!-- SHORT VIDEOS -->
+
+        <h2 class="section-title">
+            🎥 Watch While You Wait
+        </h2>
+
+
+        <div class="video-card"
+             onclick="openVideo('skills')">
+
+            <h2>🔥 Football Skills</h2>
+
+            <p>
+                Watch football skills and tricks.
+            </p>
+
+        </div>
+
+
+        <div class="video-card"
+             onclick="openVideo('goals')">
+
+            <h2>⚽ Best Goals</h2>
+
+            <p>
+                Watch amazing football goals.
+            </p>
+
+        </div>
+
+
+        <div class="video-card"
+             onclick="openVideo('highlights')">
+
+            <h2>🏆 Match Highlights</h2>
+
+            <p>
+                Watch match highlights.
+            </p>
+
+        </div>
+
+
+        <!-- FOOTBALL VIDEOS -->
+
+        <h2 class="section-title">
+            📺 Football Videos
+        </h2>
+
+
+        <div class="card"
+             onclick="openVideo('all')">
+
+            <h2>🎬 Highlights & More</h2>
+
+            <p>
+                Watch football highlights,
+                interviews and football clips.
+            </p>
+
+        </div>
+
+
+        <!-- TRANSFERS -->
+
+        <h2 class="section-title">
+            🔄 Transfers
+        </h2>
+
+
+        <div class="card"
+             onclick="showPage('news'); showNews('transfers')">
+
+            <h2>🔄 Transfer News</h2>
+
+            <p>
+                See football transfer stories.
+            </p>
+
+        </div>
+
+
+        <!-- MATCHES -->
+
+        <div class="card"
+             onclick="showPage('fixtures')">
+
+            <h2>⚽ Match Updates</h2>
+
+            <p>
+                See fixtures and recent results.
+            </p>
+
+        </div>
+
+
+        <!-- NEWS -->
+
+        <div class="card"
+             onclick="showPage('news'); showNews('headlines')">
+
+            <h2>📰 Latest News</h2>
+
+            <p>
+                Read the latest football stories.
+            </p>
+
+        </div>
+
     </div>
 
-    <div id="news">
-        <h2>Latest Football News</h2>
-        <p>Stay updated with the latest football action!</p>
-        <h3>🔥 Matchday News</h3>
-        <p>Follow the latest scores, results and football updates here.</p>
+
+    <!-- ================================================= -->
+    <!-- ================= NEWS PAGE ===================== -->
+    <!-- ================================================= -->
+
+    <div id="news" class="page">
+
+        <h2>📰 Football News</h2>
+
+
+        <div class="card"
+             onclick="showNews('headlines')">
+
+            <h2>📰 Latest Headlines</h2>
+
+            <p>
+                Important football stories.
+            </p>
+
+        </div>
+
+
+        <div class="card"
+             onclick="showNews('transfers')">
+
+            <h2>🔄 Transfer News</h2>
+
+            <p>
+                Latest transfer information.
+            </p>
+
+        </div>
+
+
+        <div class="card"
+             onclick="showNews('current')">
+
+            <h2>🔥 What's Happening Now?</h2>
+
+            <p>
+                Current football events.
+            </p>
+
+        </div>
+
+
+        <div class="card"
+             onclick="showNews('results')">
+
+            <h2>⚽ Match Results</h2>
+
+            <p>
+                Recent football results.
+            </p>
+
+        </div>
+
+
+        <div id="news-content"></div>
+
     </div>
 
-    <div id="teams">
-        <h2>Premier League ⚽</h2>
 
-        <div class="team">⚽ AFC Bournemouth</div>
-        <div class="team">⚽ Arsenal</div>
-        <div class="team">⚽ Aston Villa</div>
-        <div class="team">⚽ Brentford</div>
-        <div class="team">⚽ Brighton & Hove Albion</div>
-        <div class="team">⚽ Chelsea</div>
-        <div class="team">⚽ Crystal Palace</div>
-        <div class="team">⚽ Everton</div>
-        <div class="team">⚽ Fulham</div>
-        <div class="team">⚽ Leeds United</div>
-        <div class="team">⚽ Liverpool</div>
-        <div class="team">⚽ Manchester City</div>
-        <div class="team">⚽ Manchester United</div>
-        <div class="team">⚽ Newcastle United</div>
-        <div class="team">⚽ Nottingham Forest</div>
-        <div class="team">⚽ Sunderland</div>
-        <div class="team">⚽ Tottenham Hotspur</div>
-        <div class="team">⚽ West Ham United</div>
-        <div class="team">⚽ Wolverhampton Wanderers</div>
-        <div class="team">⚽ Burnley</div>
-        <h2>La Liga 🇪🇸</h2>
+    <!-- ================================================= -->
+    <!-- ================= TEAMS PAGE =================== -->
+    <!-- ================================================= -->
 
-<div class="team">⚽ Athletic Club</div>
-<div class="team">⚽ Atlético Madrid</div>
-<div class="team">⚽ Barcelona</div>
-<div class="team">⚽ Real Madrid</div>
-<div class="team">⚽ Sevilla</div>
-<div class="team">⚽ Valencia</div>
-<div class="team">⚽ Villarreal</div>
-<div class="team">⚽ Real Betis</div>
-<div class="team">⚽ Real Sociedad</div>
-<div class="team">⚽ Girona</div>
-<h2>Serie A 🇮🇹</h2>
+    <div id="teams" class="page">
 
-<div class="team">⚽ AC Milan</div>
-<div class="team">⚽ Inter Milan</div>
-<div class="team">⚽ Juventus</div>
-<div class="team">⚽ Napoli</div>
-<div class="team">⚽ AS Roma</div>
-<div class="team">⚽ Lazio</div>
-<div class="team">⚽ Atalanta</div>
-<div class="team">⚽ Fiorentina</div>
-<div class="team">⚽ Bologna</div>
-<div class="team">⚽ Torino</div>
-<div class="team">⚽ Genoa</div>
-<div class="team">⚽ Udinese</div>
-<div class="team">⚽ Cagliari</div>
-<div class="team">⚽ Parma</div>
-<div class="team">⚽ Lecce</div>
-<div class="team">⚽ Como</div>
-<div class="team">⚽ Sassuolo</div>
-<div class="team">⚽ Cremonese</div>
-<div class="team">⚽ Pisa</div>
-<div class="team">⚽ Hellas Verona</div>
-<h2>Bundesliga 🇩🇪</h2>
-<div class="team">⚽ Bayern Munich</div>
-<div class="team">⚽ Borussia Dortmund</div>
-<div class="team">⚽ Bayer Leverkusen</div>
-<div class="team">⚽ RB Leipzig</div>
-<div class="team">⚽ Eintracht Frankfurt</div>
-<div class="team">⚽ VfB Stuttgart</div>
-<div class="team">⚽ Borussia Mönchengladbach</div>
-<div class="team">⚽ Wolfsburg</div>
-<div class="team">⚽ SC Freiburg</div>
-<div class="team">⚽ Mainz 05</div>
-<div class="team">⚽ Werder Bremen</div>
-<div class="team">⚽ Union Berlin</div>
-<div class="team">⚽ Augsburg</div>
-<div class="team">⚽ Hoffenheim</div>
-<div class="team">⚽ FC St. Pauli</div>
-<div class="team">⚽ Heidenheim</div>
-<div class="team">⚽ Köln</div>
-<div class="team">⚽ Hamburg</div>
-<h2>Ligue 1 🇫🇷</h2>
-<div class="team">⚽ Paris Saint-Germain</div>
-<div class="team">⚽ Marseille</div>
-<div class="team">⚽ Lyon</div>
-<div class="team">⚽ Monaco</div>
-<div class="team">⚽ Lille</div>
-<div class="team">⚽ Nice</div>
-<div class="team">⚽ Rennes</div>
-<div class="team">⚽ Lens</div>
-<div class="team">⚽ Nantes</div>
-<div class="team">⚽ Strasbourg</div>
-<div class="team">⚽ Montpellier</div>
-<div class="team">⚽ Toulouse</div>
-<div class="team">⚽ Brest</div>
-<div class="team">⚽ Reims</div>
-<div class="team">⚽ Auxerre</div>
-<div class="team">⚽ Le Havre</div>
-<div class="team">⚽ Angers</div>
-<div class="team">⚽ Saint-Étienne</div>
+        <h2>⚽ Football Teams</h2>
+
+
+        <h2 class="section-title">
+            🏴 Premier League
+        </h2>
+
+
+        <div class="team"
+             onclick="teamInfo('Arsenal')">
+            ⚽ Arsenal
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Chelsea')">
+            ⚽ Chelsea
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Liverpool')">
+            ⚽ Liverpool
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Manchester City')">
+            ⚽ Manchester City
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Manchester United')">
+            ⚽ Manchester United
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Arsenal')">
+            ⚽ Arsenal
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Newcastle United')">
+            ⚽ Newcastle United
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Tottenham Hotspur')">
+            ⚽ Tottenham Hotspur
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Aston Villa')">
+            ⚽ Aston Villa
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Everton')">
+            ⚽ Everton
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Crystal Palace')">
+            ⚽ Crystal Palace
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Fulham')">
+            ⚽ Fulham
+        </div>
+
+
+        <h2 class="section-title">
+            🇪🇸 La Liga
+        </h2>
+
+
+        <div class="team"
+             onclick="teamInfo('Barcelona')">
+            ⚽ Barcelona
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Real Madrid')">
+            ⚽ Real Madrid
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Atletico Madrid')">
+            ⚽ Atlético Madrid
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Sevilla')">
+            ⚽ Sevilla
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Valencia')">
+            ⚽ Valencia
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Villarreal')">
+            ⚽ Villarreal
+        </div>
+
+
+        <h2 class="section-title">
+            🇮🇹 Serie A
+        </h2>
+
+
+        <div class="team"
+             onclick="teamInfo('AC Milan')">
+            ⚽ AC Milan
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Inter Milan')">
+            ⚽ Inter Milan
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Juventus')">
+            ⚽ Juventus
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Napoli')">
+            ⚽ Napoli
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Roma')">
+            ⚽ AS Roma
+        </div>
+
+
+        <h2 class="section-title">
+            🇩🇪 Bundesliga
+        </h2>
+
+
+        <div class="team"
+             onclick="teamInfo('Bayern Munich')">
+            ⚽ Bayern Munich
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Borussia Dortmund')">
+            ⚽ Borussia Dortmund
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Bayer Leverkusen')">
+            ⚽ Bayer Leverkusen
+        </div>
+
+
+        <h2 class="section-title">
+            🇫🇷 Ligue 1
+        </h2>
+
+
+        <div class="team"
+             onclick="teamInfo('PSG')">
+            ⚽ PSG
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Marseille')">
+            ⚽ Marseille
+        </div>
+
+        <div class="team"
+             onclick="teamInfo('Monaco')">
+            ⚽ Monaco
+        </div>
+
     </div>
 
-    <div id="fixtures">
-        <h2>Upcoming Matches</h2>
-        <p>🏆 Manchester City vs Arsenal</p>
-        <p>🏆 Real Madrid vs Barcelona</p>
+
+    <!-- ================================================= -->
+    <!-- ================= FIXTURES PAGE ================ -->
+    <!-- ================================================= -->
+
+    <div id="fixtures" class="page">
+
+        <h2>📅 Fixtures & Results</h2>
+
+
+        <h2 class="section-title">
+            🔥 Matches
+        </h2>
+
+
+        <div class="match"
+             onclick="matchInfo('Bournemouth vs Liverpool')">
+
+            ⚽ Bournemouth vs Liverpool
+
+            <br><br>
+
+            2:00 PM
+
+        </div>
+
+
+        <div class="match"
+             onclick="matchInfo('Leeds United vs Crystal Palace')">
+
+            ⚽ Leeds United vs Crystal Palace
+
+            <br><br>
+
+            2:00 PM
+
+        </div>
+
+
+        <div class="match"
+             onclick="matchInfo('Manchester City vs Sunderland')">
+
+            ⚽ Manchester City vs Sunderland
+
+            <br><br>
+
+            2:00 PM
+
+        </div>
+
+
+        <div class="match"
+             onclick="matchInfo('Fulham vs Manchester United')">
+
+            ⚽ Fulham vs Manchester United
+
+            <br><br>
+
+            4:30 PM
+
+        </div>
+
+
+        <h2 class="section-title">
+            🏆 Recent Results
+        </h2>
+
+
+        <div class="match"
+             onclick="matchInfo('Manchester City 5 - 3 Sunderland')">
+
+            🔵 Manchester City 5 - 3 Sunderland
+
+        </div>
+
+
+        <div class="match"
+             onclick="matchInfo('Bournemouth 0 - 1 Liverpool')">
+
+            🔴 Bournemouth 0 - 1 Liverpool
+
+        </div>
+
+
+        <div class="match"
+             onclick="matchInfo('Leeds United 0 - 0 Crystal Palace')">
+
+            ⚽ Leeds United 0 - 0 Crystal Palace
+
+        </div>
+
     </div>
+
+
+    <!-- ================================================= -->
+    <!-- ================= JAVASCRIPT =================== -->
+    <!-- ================================================= -->
 
     <script>
-        let color = 0;
 
-        function changeColor() {
-            const button = document.querySelector("button");
 
-            if (color === 0) {
-                button.style.backgroundColor = "red";
-                color = 1;
-            } else if (color === 1) {
-                button.style.backgroundColor = "blue";
-                color = 2;
-            } else if (color === 2) {
-                button.style.backgroundColor = "green";
-                color = 3;
-            } else {
-                button.style.backgroundColor = "purple";
-                color = 0;
-            }
-        }
+        /* ================= PAGE NAVIGATION ================= */
 
         function showPage(page) {
+
             document.getElementById("home").style.display = "none";
+
             document.getElementById("news").style.display = "none";
+
             document.getElementById("teams").style.display = "none";
+
             document.getElementById("fixtures").style.display = "none";
 
             document.getElementById(page).style.display = "block";
+
+            window.scrollTo(0, 0);
         }
 
+
+
+        /* ================= NEWS ================= */
+
+        function showNews(type) {
+
+            const content =
+                document.getElementById("news-content");
+
+
+            if (type === "headlines") {
+
+                content.innerHTML = `
+
+                    <div class="news-card">
+
+                        <button
+                        class="back-button"
+                        onclick="showPage('news')">
+                        ← Back
+                        </button>
+
+                        <h2>📰 Latest Headlines</h2>
+
+                        <h3>
+                            🔵 Manchester City 5-3 Sunderland
+                        </h3>
+
+                        <p>
+                            Manchester City defeated
+                            Sunderland in a high-scoring
+                            Premier League match.
+                        </p>
+
+
+                        <h3>
+                            🔴 Bournemouth 0-1 Liverpool
+                        </h3>
+
+                        <p>
+                            Liverpool won their match
+                            against Bournemouth.
+                        </p>
+
+
+                        <h3>
+                            ⚽ Leeds United 0-0 Crystal Palace
+                        </h3>
+
+                        <p>
+                            Leeds United and Crystal Palace
+                            finished level.
+                        </p>
+
+                    </div>
+
+                `;
+            }
+
+
+            if (type === "transfers") {
+
+                content.innerHTML = `
+
+                    <div class="news-card">
+
+                        <button
+                        class="back-button"
+                        onclick="showPage('news')">
+                        ← Back
+                        </button>
+
+                        <h2>🔄 Transfer News</h2>
+
+                        <h3>
+                            🔥 Transfer Window
+                        </h3>
+
+                        <p>
+                            Follow completed transfers,
+                            loan moves and transfer stories
+                            here.
+                        </p>
+
+
+                        <h3>
+                            ⚽ Transfer Updates
+                        </h3>
+
+                        <p>
+                            New transfer stories can be
+                            added to this section as they
+                            happen.
+                        </p>
+
+                    </div>
+
+                `;
+            }
+
+
+            if (type === "current") {
+
+                content.innerHTML = `
+
+                    <div class="news-card">
+
+                        <button
+                        class="back-button"
+                        onclick="showPage('news')">
+                        ← Back
+                        </button>
+
+                        <h2>
+                            🔥 What's Happening Now?
+                        </h2>
+
+                        <p>
+                            This section is for major
+                            football events, important
+                            matches and breaking stories.
+                        </p>
+
+
+                        <p>
+                            Football Daily will keep this
+                            area for the biggest football
+                            updates.
+                        </p>
+
+                    </div>
+
+                `;
+            }
+
+
+            if (type === "results") {
+
+                content.innerHTML = `
+
+                    <div class="news-card">
+
+                        <button
+                        class="back-button"
+                        onclick="showPage('news')">
+                        ← Back
+                        </button>
+
+                        <h2>
+                            ⚽ Match Results
+                        </h2>
+
+                        <h3>
+                            Manchester City 5 - 3 Sunderland
+                        </h3>
+
+                        <p>
+                            Premier League
+                        </p>
+
+
+                        <h3>
+                            Bournemouth 0 - 1 Liverpool
+                        </h3>
+
+                        <p>
+                            Premier League
+                        </p>
+
+
+                        <h3>
+                            Leeds United 0 - 0 Crystal Palace
+                        </h3>
+
+                        <p>
+                            Premier League
+                        </p>
+
+                    </div>
+
+                `;
+            }
+
+
+            window.scrollTo(0, 0);
+        }
+
+
+
+        /* ================= TEAM INFORMATION ================= */
+
+        function teamInfo(team) {
+
+            showPage("teams");
+
+
+            const oldInfo =
+                document.getElementById("team-info");
+
+
+            if (oldInfo) {
+                oldInfo.remove();
+            }
+
+
+            const info =
+                document.createElement("div");
+
+
+            info.id = "team-info";
+
+            info.className = "info-box";
+
+
+            info.innerHTML = `
+
+                <button
+                class="back-button"
+                onclick="closeTeamInfo()">
+                ← Back
+                </button>
+
+                <h2>⚽ ${team}</h2>
+
+                <p>
+                    You selected <strong>${team}</strong>.
+                </p>
+
+                <p>
+                    This is the team information area.
+                </p>
+
+                <p>
+                    More information such as players,
+                    matches, results and news can be
+                    added here.
+                </p>
+
+            `;
+
+
+            document
+                .getElementById("teams")
+                .appendChild(info);
+
+
+            info.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
+
+
+        function closeTeamInfo() {
+
+            const info =
+                document.getElementById("team-info");
+
+
+            if (info) {
+                info.remove();
+            }
+
+        }
+
+
+
+        /* ================= MATCH INFORMATION ================= */
+
+        function matchInfo(match) {
+
+            alert(
+                "⚽ Match selected!\n\n" +
+                match +
+                "\n\nMore match information can be added here."
+            );
+
+        }
+
+
+
+        /* ================= VIDEO SECTION ================= */
+
+        function openVideo(type) {
+
+            let title = "";
+            let message = "";
+
+
+            if (type === "skills") {
+
+                title = "🔥 Football Skills";
+
+                message =
+                    "Football skills and tricks will appear here.";
+
+            }
+
+
+            if (type === "goals") {
+
+                title = "⚽ Best Goals";
+
+                message =
+                    "Amazing football goals will appear here.";
+
+            }
+
+
+            if (type === "highlights") {
+
+                title = "🏆 Match Highlights";
+
+                message =
+                    "Match highlights will appear here.";
+
+            }
+
+
+            if (type === "all") {
+
+                title = "🎬 Football Videos";
+
+                message =
+                    "Highlights, interviews, goals and football clips will appear here.";
+
+            }
+
+
+            alert(
+                title +
+                "\n\n" +
+                message
+            );
+
+        }
+
+
+
+        /* ================= START WEBSITE ================= */
+
         showPage("home");
+
     </script>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            ⚽ Football Daily
+        </p>
+
+        <p>
+            Football news, teams, fixtures and more.
+        </p>
+
+    </footer>
 
 </body>
 </html>

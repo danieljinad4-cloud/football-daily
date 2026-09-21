@@ -38,7 +38,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 12px;
             font-weight: bold;
             cursor: pointer;
         }
@@ -94,6 +94,7 @@
         .card,
         .news-card,
         .match,
+        .transfer-card,
         .info-box {
             background: white;
             color: #0b132b;
@@ -113,7 +114,8 @@
         .card:hover,
         .match:hover,
         .team:hover,
-        .video-card:hover {
+        .video-card:hover,
+        .transfer-card:hover {
             transform: scale(1.03);
         }
 
@@ -180,6 +182,7 @@
             padding: 20px;
             cursor: pointer;
             transition: 0.2s;
+            text-align: center;
         }
 
         .match:hover {
@@ -222,7 +225,7 @@
 
         .filter-area {
             margin: 20px auto;
-            max-width: 700px;
+            max-width: 900px;
             text-align: center;
         }
 
@@ -253,6 +256,77 @@
             color: #555;
         }
 
+        /* TRANSFERS */
+
+        .transfer-card {
+            width: 750px;
+            max-width: 95%;
+            margin: 20px auto;
+            padding: 25px;
+            transition: 0.2s;
+        }
+
+        .transfer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .transfer-player {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .transfer-route {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .club {
+            background: #e2e8f0;
+            padding: 12px 18px;
+            border-radius: 10px;
+        }
+
+        .arrow {
+            font-size: 25px;
+            color: #16a34a;
+        }
+
+        .transfer-fee {
+            font-size: 18px;
+            font-weight: bold;
+            color: #064e3b;
+        }
+
+        .completed {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .rumour {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .transfer-search {
+            width: 90%;
+            max-width: 600px;
+            padding: 14px;
+            border-radius: 8px;
+            border: none;
+            margin: 15px;
+            font-size: 16px;
+        }
+
         footer {
             margin-top: 50px;
             padding: 25px;
@@ -261,6 +335,7 @@
         }
 
         @media (max-width: 600px) {
+
             header h1 {
                 font-size: 30px;
             }
@@ -277,6 +352,10 @@
             .hero h2 {
                 font-size: 30px;
             }
+
+            .transfer-route {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -285,22 +364,25 @@
 
 <header>
     <h1>⚽ Football Daily</h1>
-    <p>Your home for football news, teams, fixtures and results</p>
+    <p>Your home for football news, transfers, teams, fixtures and results</p>
 </header>
 
 <nav>
     <a href="#" onclick="showPage('home')">🏠 Home</a>
     <a href="#" onclick="showPage('news')">📰 News</a>
+    <a href="#" onclick="showPage('transfers')">🔄 Transfers</a>
     <a href="#" onclick="showPage('teams')">⚽ Teams</a>
     <a href="#" onclick="showPage('fixtures')">🗓️ Fixtures</a>
 </nav>
 
 
 <!-- HOME -->
+
 <div id="home" class="page">
 
     <div class="hero">
         <h2>⚽ Your Football Hub</h2>
+
         <p>
             Football news, transfers, teams, fixtures, results and videos
             all in one place.
@@ -308,6 +390,10 @@
 
         <button class="button" onclick="showPage('news')">
             📰 Latest News
+        </button>
+
+        <button class="button" onclick="showPage('transfers')">
+            🔄 Transfer Centre
         </button>
 
         <button class="button" onclick="showPage('fixtures')">
@@ -319,60 +405,100 @@
     <h2 class="section-title">🗓️ Fixtures & Scores</h2>
 
     <div class="card" onclick="showPage('fixtures')">
+
         <h2>⚽ Check Matches</h2>
+
         <p>
             Check upcoming matches and recent results.
         </p>
-        <button class="button">View Fixtures</button>
+
+        <button class="button">
+            View Fixtures
+        </button>
+
+    </div>
+
+
+    <h2 class="section-title">🔄 Transfer Centre</h2>
+
+    <div class="card" onclick="showPage('transfers')">
+
+        <h2>🔥 Latest Transfer Activity</h2>
+
+        <p>
+            Check completed transfers and transfer rumours.
+        </p>
+
+        <button class="button">
+            Open Transfer Centre
+        </button>
+
     </div>
 
 
     <h2 class="section-title">📰 Latest Football News</h2>
 
     <div class="news-card">
-        <span class="news-category">Premier League</span>
-        <h2>Manchester City beat Sunderland 5-3</h2>
+
+        <span class="news-category">
+            Premier League
+        </span>
+
+        <h2>
+            Manchester City beat Sunderland 5-3
+        </h2>
+
         <p>
             Manchester City recorded a high-scoring Premier League victory.
         </p>
+
         <button class="button" onclick="showPage('news')">
             Read More
         </button>
-    </div>
 
-    <div class="news-card">
-        <span class="news-category">Transfers</span>
-        <h2>Transfer Centre</h2>
-        <p>
-            Follow major football transfer stories and rumours.
-        </p>
-        <button class="button" onclick="showPage('news')">
-            View Transfer News
-        </button>
     </div>
 
 
     <h2 class="section-title">🎥 Watch While You Wait</h2>
 
-    <div class="video-card" onclick="watchVideo('Top Football Goals')">
+    <div class="video-card"
+         onclick="watchVideo('Top Football Goals')">
+
         <h2>🔥 Top Football Goals</h2>
-        <p>Watch some of the best football moments.</p>
+
+        <p>
+            Watch some of the best football moments.
+        </p>
+
     </div>
 
-    <div class="video-card" onclick="watchVideo('Football Highlights')">
+    <div class="video-card"
+         onclick="watchVideo('Football Highlights')">
+
         <h2>⚡ Football Highlights</h2>
-        <p>Check out exciting football highlights.</p>
+
+        <p>
+            Check out exciting football highlights.
+        </p>
+
     </div>
 
-    <div class="video-card" onclick="watchVideo('Skills & Tricks')">
+    <div class="video-card"
+         onclick="watchVideo('Skills & Tricks')">
+
         <h2>🎯 Skills & Tricks</h2>
-        <p>See incredible football skills and tricks.</p>
+
+        <p>
+            See incredible football skills and tricks.
+        </p>
+
     </div>
 
 </div>
 
 
 <!-- NEWS -->
+
 <div id="news" class="page">
 
     <h1>📰 Football News</h1>
@@ -405,64 +531,171 @@
 
     </div>
 
-
     <div id="newsContainer"></div>
 
 </div>
 
 
+<!-- TRANSFER CENTRE -->
+
+<div id="transfers" class="page">
+
+    <h1>🔄 Transfer Centre</h1>
+
+    <p>
+        Follow completed transfers and transfer rumours.
+    </p>
+
+
+    <div class="filter-area">
+
+        <input
+            type="text"
+            id="transferSearch"
+            class="transfer-search"
+            placeholder="🔎 Search player or club..."
+            onkeyup="searchTransfers()"
+        >
+
+        <br>
+
+        <button class="filter-button active"
+                onclick="filterTransfers('all', this)">
+            🌍 All
+        </button>
+
+        <button class="filter-button"
+                onclick="filterTransfers('completed', this)">
+            🟢 Completed
+        </button>
+
+        <button class="filter-button"
+                onclick="filterTransfers('rumour', this)">
+            🟡 Rumours
+        </button>
+
+    </div>
+
+
+    <div id="transfersContainer"></div>
+
+</div>
+
+
 <!-- TEAMS -->
+
 <div id="teams" class="page">
 
     <h1>⚽ Football Teams</h1>
 
-    <p>Choose a league to explore its teams.</p>
+    <p>
+        Choose a league to explore its teams.
+    </p>
 
 
     <h2 class="section-title">🏴 Premier League</h2>
 
-    <div class="team" onclick="teamInfo('Arsenal')">Arsenal</div>
-    <div class="team" onclick="teamInfo('Chelsea')">Chelsea</div>
-    <div class="team" onclick="teamInfo('Liverpool')">Liverpool</div>
-    <div class="team" onclick="teamInfo('Manchester City')">Manchester City</div>
-    <div class="team" onclick="teamInfo('Manchester United')">Manchester United</div>
-    <div class="team" onclick="teamInfo('Tottenham')">Tottenham</div>
+    <div class="team" onclick="teamInfo('Arsenal')">
+        Arsenal
+    </div>
+
+    <div class="team" onclick="teamInfo('Chelsea')">
+        Chelsea
+    </div>
+
+    <div class="team" onclick="teamInfo('Liverpool')">
+        Liverpool
+    </div>
+
+    <div class="team" onclick="teamInfo('Manchester City')">
+        Manchester City
+    </div>
+
+    <div class="team" onclick="teamInfo('Manchester United')">
+        Manchester United
+    </div>
+
+    <div class="team" onclick="teamInfo('Tottenham')">
+        Tottenham
+    </div>
 
 
     <h2 class="section-title">🇪🇸 La Liga</h2>
 
-    <div class="team" onclick="teamInfo('Real Madrid')">Real Madrid</div>
-    <div class="team" onclick="teamInfo('Barcelona')">Barcelona</div>
-    <div class="team" onclick="teamInfo('Atletico Madrid')">Atletico Madrid</div>
-    <div class="team" onclick="teamInfo('Sevilla')">Sevilla</div>
-    <div class="team" onclick="teamInfo('Villarreal')">Villarreal</div>
+    <div class="team" onclick="teamInfo('Real Madrid')">
+        Real Madrid
+    </div>
+
+    <div class="team" onclick="teamInfo('Barcelona')">
+        Barcelona
+    </div>
+
+    <div class="team" onclick="teamInfo('Atletico Madrid')">
+        Atletico Madrid
+    </div>
+
+    <div class="team" onclick="teamInfo('Sevilla')">
+        Sevilla
+    </div>
+
+    <div class="team" onclick="teamInfo('Villarreal')">
+        Villarreal
+    </div>
 
 
     <h2 class="section-title">🇮🇹 Serie A</h2>
 
-    <div class="team" onclick="teamInfo('Inter Milan')">Inter Milan</div>
-    <div class="team" onclick="teamInfo('AC Milan')">AC Milan</div>
-    <div class="team" onclick="teamInfo('Juventus')">Juventus</div>
-    <div class="team" onclick="teamInfo('Napoli')">Napoli</div>
+    <div class="team" onclick="teamInfo('Inter Milan')">
+        Inter Milan
+    </div>
+
+    <div class="team" onclick="teamInfo('AC Milan')">
+        AC Milan
+    </div>
+
+    <div class="team" onclick="teamInfo('Juventus')">
+        Juventus
+    </div>
+
+    <div class="team" onclick="teamInfo('Napoli')">
+        Napoli
+    </div>
 
 
     <h2 class="section-title">🇩🇪 Bundesliga</h2>
 
-    <div class="team" onclick="teamInfo('Bayern Munich')">Bayern Munich</div>
-    <div class="team" onclick="teamInfo('Borussia Dortmund')">Borussia Dortmund</div>
-    <div class="team" onclick="teamInfo('RB Leipzig')">RB Leipzig</div>
+    <div class="team" onclick="teamInfo('Bayern Munich')">
+        Bayern Munich
+    </div>
+
+    <div class="team" onclick="teamInfo('Borussia Dortmund')">
+        Borussia Dortmund
+    </div>
+
+    <div class="team" onclick="teamInfo('RB Leipzig')">
+        RB Leipzig
+    </div>
 
 
     <h2 class="section-title">🇫🇷 Ligue 1</h2>
 
-    <div class="team" onclick="teamInfo('PSG')">PSG</div>
-    <div class="team" onclick="teamInfo('Marseille')">Marseille</div>
-    <div class="team" onclick="teamInfo('Lyon')">Lyon</div>
+    <div class="team" onclick="teamInfo('PSG')">
+        PSG
+    </div>
+
+    <div class="team" onclick="teamInfo('Marseille')">
+        Marseille
+    </div>
+
+    <div class="team" onclick="teamInfo('Lyon')">
+        Lyon
+    </div>
 
 </div>
 
 
 <!-- FIXTURES -->
+
 <div id="fixtures" class="page">
 
     <h1>🗓️ Fixtures & Results</h1>
@@ -496,7 +729,8 @@
 
         <br>
 
-        <button class="refresh-button" onclick="loadMatches('all')">
+        <button class="refresh-button"
+                onclick="loadMatches('all')">
             🔄 Refresh
         </button>
 
@@ -510,7 +744,7 @@
 
 <footer>
     <p>⚽ Football Daily</p>
-    <p>Football news, teams, fixtures and more.</p>
+    <p>Football news, transfers, teams and fixtures.</p>
 </footer>
 
 
@@ -524,12 +758,25 @@
 
         document.getElementById("home").style.display = "none";
         document.getElementById("news").style.display = "none";
+        document.getElementById("transfers").style.display = "none";
         document.getElementById("teams").style.display = "none";
         document.getElementById("fixtures").style.display = "none";
 
         document.getElementById(page).style.display = "block";
 
         window.scrollTo(0, 0);
+
+        if (page === "news") {
+            displayNews();
+        }
+
+        if (page === "transfers") {
+            displayTransfers("all");
+        }
+
+        if (page === "fixtures") {
+            loadMatches("all");
+        }
     }
 
 
@@ -582,11 +829,11 @@
         {
             category: "transfers",
             categoryName: "Transfers",
-            title: "Enzo Fernández moves to Manchester City",
+            title: "Transfer Centre",
             description:
-                "A major transfer story involving Manchester City and Enzo Fernández.",
+                "Follow major football transfer stories and rumours.",
             source: "Football Daily",
-            date: "Transfer Centre"
+            date: "2026"
         },
 
         {
@@ -631,7 +878,8 @@
 
         filteredNews.forEach(function(news) {
 
-            const card = document.createElement("div");
+            const card =
+                document.createElement("div");
 
             card.className = "news-card";
 
@@ -669,7 +917,9 @@
     function filterNews(category, button) {
 
         const buttons =
-            document.querySelectorAll(".filter-button");
+            document.querySelectorAll(
+                "#news .filter-button"
+            );
 
         buttons.forEach(function(btn) {
             btn.classList.remove("active");
@@ -687,9 +937,222 @@
         alert(
             "Football Daily 📰\n\n" +
             title +
-            "\n\nThis is a news preview. " +
+            "\n\n" +
+            "This is a news preview. " +
             "A full article page can be added later."
         );
+
+    }
+
+
+    /* =========================
+       TRANSFERS
+    ========================= */
+
+    const transfers = [
+
+        {
+            player: "Morgan Rogers",
+            from: "Aston Villa",
+            to: "Chelsea",
+            type: "completed",
+            fee: "Transfer completed",
+            date: "July 2026"
+        },
+
+        {
+            player: "Enzo Fernández",
+            from: "Chelsea",
+            to: "Manchester City",
+            type: "completed",
+            fee: "Transfer completed",
+            date: "2026"
+        },
+
+        {
+            player: "Kylian Mbappé",
+            from: "Real Madrid",
+            to: "On",
+            type: "completed",
+            fee: "Sportswear deal",
+            date: "September 2026"
+        },
+
+        {
+            player: "Victor Osimhen",
+            from: "Napoli",
+            to: "Transfer target",
+            type: "rumour",
+            fee: "Rumour",
+            date: "Rumour"
+        },
+
+        {
+            player: "Rodrygo",
+            from: "Real Madrid",
+            to: "Transfer target",
+            type: "rumour",
+            fee: "Rumour",
+            date: "Rumour"
+        },
+
+        {
+            player: "Alexander Isak",
+            from: "Newcastle United",
+            to: "Transfer target",
+            type: "rumour",
+            fee: "Rumour",
+            date: "Rumour"
+        }
+
+    ];
+
+
+    let currentTransferFilter = "all";
+
+
+    function displayTransfers(filter = "all") {
+
+        currentTransferFilter = filter;
+
+        const container =
+            document.getElementById("transfersContainer");
+
+        container.innerHTML = "";
+
+        const searchInput =
+            document.getElementById("transferSearch");
+
+        const search =
+            searchInput
+                ? searchInput.value.toLowerCase()
+                : "";
+
+
+        let filteredTransfers =
+            transfers.filter(function(transfer) {
+
+                const matchesFilter =
+                    filter === "all" ||
+                    transfer.type === filter;
+
+                const matchesSearch =
+                    transfer.player.toLowerCase().includes(search) ||
+                    transfer.from.toLowerCase().includes(search) ||
+                    transfer.to.toLowerCase().includes(search);
+
+                return matchesFilter && matchesSearch;
+
+            });
+
+
+        if (filteredTransfers.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="card">
+
+                    <h2>🔎 No transfers found</h2>
+
+                    <p>
+                        Try another player or club.
+                    </p>
+
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+        filteredTransfers.forEach(function(transfer) {
+
+            const card =
+                document.createElement("div");
+
+            card.className = "transfer-card";
+
+            const statusText =
+                transfer.type === "completed"
+                    ? "🟢 Completed"
+                    : "🟡 Rumour";
+
+
+            card.innerHTML = `
+
+                <div class="transfer-header">
+
+                    <div class="transfer-player">
+                        ${transfer.player}
+                    </div>
+
+                    <span class="status ${
+                        transfer.type === "completed"
+                            ? "completed"
+                            : "rumour"
+                    }">
+                        ${statusText}
+                    </span>
+
+                </div>
+
+
+                <div class="transfer-route">
+
+                    <div class="club">
+                        ${transfer.from}
+                    </div>
+
+                    <div class="arrow">
+                        →
+                    </div>
+
+                    <div class="club">
+                        ${transfer.to}
+                    </div>
+
+                </div>
+
+
+                <div class="transfer-fee">
+                    💰 ${transfer.fee}
+                </div>
+
+                <p class="small-text">
+                    📅 ${transfer.date}
+                </p>
+
+            `;
+
+            container.appendChild(card);
+
+        });
+
+    }
+
+
+    function filterTransfers(filter, button) {
+
+        const buttons =
+            document.querySelectorAll(
+                "#transfers .filter-button"
+            );
+
+        buttons.forEach(function(btn) {
+            btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+
+        displayTransfers(filter);
+
+    }
+
+
+    function searchTransfers() {
+
+        displayTransfers(currentTransferFilter);
 
     }
 
@@ -798,13 +1261,21 @@
 
         }
 
+
         if (filteredMatches.length === 0) {
 
             container.innerHTML = `
+
                 <div class="card">
+
                     <h2>No matches found</h2>
-                    <p>There are no matches in this category.</p>
+
+                    <p>
+                        There are no matches in this category.
+                    </p>
+
                 </div>
+
             `;
 
             return;
@@ -821,6 +1292,7 @@
             matchCard.onclick = function() {
                 matchInfo(match);
             };
+
 
             matchCard.innerHTML = `
 
